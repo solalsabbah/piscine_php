@@ -45,7 +45,7 @@ if (!preg_match("#^(lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche)$#i", $s
 	exit ("Wrong Format\n");
 
 if (!preg_match("#^([1-9]|([0-2][0-9])|3[01])$#", $str[1]))
-	exit ("Wrong Format day \n");
+	exit ("Wrong Format\n");
 
 if (!preg_match("#^[0-9]{4}$#i", $str[3]))
 	exit ("Wrong Format\n");
