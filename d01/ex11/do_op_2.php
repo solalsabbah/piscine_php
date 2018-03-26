@@ -1,58 +1,55 @@
 #!/usr/bin/php
 <?PHP
 
-// attnetion 3 +  4 + 5
-
 if ($argc != 2)
 	exit ("Incorrect Parameters\n");
 
-$string = preg_replace('/\s+/', '', $argv[1]);
 
+$string = trim(preg_replace('/\s+/', ' ', $argv[1]));
+
+
+$array = explode(" ", $string);
 
 $array = explode("+", $string);
 	if ($array[0] != $string)
 	{
-		if(is_numeric($array[0]) && is_numeric($array[1]))
-			print($array[0] + $array[1]."\n");
+		if(is_numeric(trim($array[0])) && is_numeric(trim($array[1])) && count($array) == 2)
+			exit ($array[0] + $array[1]."\n");
 		else 
-			print("Syntax Error\n");
-		exit ;
+			exit ("Syntax Error\n");
 	}
 $array = explode("-", $string);
 	if ($array[0] != $string)
 	{
-		if(is_numeric($array[0]) && is_numeric($array[1]))
-			print($array[0] - $array[1]."\n");
+		if(is_numeric(trim($array[0])) && is_numeric(trim($array[1])) && count($array) == 2)
+			exit ($array[0] - $array[1]."\n");
 		else 
-			print("Syntax Error\n");
-		exit ;
+			exit ("Syntax Error\n");
 	}
 $array = explode("/", $string);
 	if ($array[0] != $string)
 	{
-		if(is_numeric($array[0]) && is_numeric($array[1]))
-			print($array[0] / $array[1]."\n");
+		if(is_numeric(trim($array[0])) && is_numeric(trim($array[1])) && count($array) == 2)
+			exit ($array[0] / $array[1]."\n");
 		else 
-			print("Syntax Error\n");
-		exit ;
+			exit ("Syntax Error\n");
 	}
 $array = explode("*", $string);
 	if ($array[0] != $string)
 	{
-		if(is_numeric($array[0]) && is_numeric($array[1]))
-			print($array[0] * $array[1]."\n");
+		if(is_numeric(trim($array[0])) && is_numeric(trim($array[1])) && count($array) == 2)
+			exit ($array[0] * $array[1]."\n");
 		else 
-			print("Syntax Error\n");
-		exit ;
+			exit("Syntax Error\n");
 	}
 $array = explode("%", $string);
 	if ($array[0] != $string)
 	{
-		if(is_numeric($array[0]) && is_numeric($array[1]))
-			print($array[0] % $array[1]."\n");
+		if(is_numeric(trim($array[0])) && is_numeric(trim($array[1])) && count($array) == 2)
+			exit ($array[0] % $array[1]."\n");
 		else 
-			print("Syntax Error\n");
-		exit ;
+			exit ("Syntax Error\n");
 	}	
 			print("Syntax Error\n");
+	
 ?>
