@@ -1,6 +1,9 @@
 #!/usr/bin/php
 <?PHP
 
+if ($argc < 2) 
+	return (0);
+
 $line = preg_replace('/ +/', ' ', trim($argv[1]));
 
 $array = explode(" ", $line);
@@ -9,8 +12,8 @@ $rot = array_shift($array);
 
 $string = implode(" ", $array);
 
-$res = $string.' '. $rot;
+$res = trim($string.' '. $rot);
 
-print($res);
+print($res."\n");
 
 ?>

@@ -8,15 +8,22 @@ function epur_str($line) {
 	return ($line);
 }
 
+if ($argc < 2)
+	return ;
+
 $val = 1;
 $tab2 = array();
 
+$numeric = array();
+$ascii = array();
+$alpha = array();
 while($val < $argc)
 {
 	$tab = epur_str($argv[$val]);
 	$tab2 = array_merge($tab, $tab2);
 	$val++;
 }
+
 
 foreach ($tab2 as $element)
 {
@@ -28,9 +35,9 @@ foreach ($tab2 as $element)
 		$alpha[] = $element;
 }
 
-$sort = sort($numeric, SORT_NATURAL | SORT_FLAG_CASE);
-$sort = sort($ascii, SORT_NATURAL | SORT_FLAG_CASE);
-$sort = sort($alpha, SORT_NATURAL | SORT_FLAG_CASE);
+sort($numeric, SORT_STRING);
+sort($ascii, SORT_NATURAL | SORT_FLAG_CASE);
+sort($alpha, SORT_NATURAL | SORT_FLAG_CASE);
 
 $res = array_merge($alpha, $numeric, $ascii);
 foreach ($res as $elem)

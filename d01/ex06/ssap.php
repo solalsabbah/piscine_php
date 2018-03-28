@@ -19,5 +19,7 @@ while($val < $argc)
 }
 
 $sort = sort($tab2);
-print_r($tab2);
+
+foreach($tab2 as $elem)
+	echo $elem."\n";
 ?>

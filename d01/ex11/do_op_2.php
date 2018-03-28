@@ -4,7 +4,6 @@
 if ($argc != 2)
 	exit ("Incorrect Parameters\n");
 
-
 $string = trim(preg_replace('/\s+/', ' ', $argv[1]));
 
 

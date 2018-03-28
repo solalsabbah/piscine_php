@@ -1,11 +1,9 @@
 #!/usr/bin/php
 <?PHP
 
-//max : 9223372036854775807
-
 function msg_result($val)
 {
-	if (($val % 2) == 0)
+	if (preg_match("#[0-9]+[02468]$#", $val))
 		echo "Le chiffre $val est Pair\n";
 	else
 		echo "Le chiffre $val est Impair\n";
