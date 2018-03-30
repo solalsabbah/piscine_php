@@ -1,23 +1,23 @@
 #!/usr/bin/php
 <?PHP
-	
 
-/*	$handle = fopen("/var/run/utmpx", "r");
-	$utmp = fread($handle, 200000);
- */
+date_default_timezone_set("Europe/Paris");
 
-//	$utmp = file("/var/run/utmpx");
-//	echo($utmp[1]);
+$handle = fopen("/var/run/utmpx", "r");
+$tab = array();
 
-	$file = file_get_contents("/var/run/utmpx");
-	$sub = substr($file, 921);
-
-	echo $sub;	
-//	$format = "a256user/a4id/a32line/ipid/itype/I2time/a256host/i16pad";
-//	$res = unpack("$format", $utmp[1]);
-//	foreach ($res as $elem)
-//	{
-//		if ($elem != 0)
-//			echo $elem."\n";
-//	}
+while ($contents = fread($handle, 628))
+{
+	$contents = unpack("a256login/a4id/a32terminal/ipid/itype/I2time", $contents);
+	if (strcmp($contents['type'], "7") == 0)
+	{
+		array_push($tab, $contents);
+	}
+}
+sort($tab);
+foreach($tab as $utilisateur)
+{
+	printf("%s  %s  %s\n", $utilisateur['login'], $utilisateur['terminal'], date("M j H:i", $utilisateur['time1']));
+}
+fclose($handle);
 ?>
