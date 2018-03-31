@@ -1,7 +1,7 @@
 <?php
 
-if (file_exists("../private/passwd") == FALSE)
-	exit ("ERROR\n");
+//if (file_exists("../private/passwd") == FALSE)
+//	exit ("ERROR\n");
 
 $data = unserialize(file_get_contents("../private/passwd"));
 
